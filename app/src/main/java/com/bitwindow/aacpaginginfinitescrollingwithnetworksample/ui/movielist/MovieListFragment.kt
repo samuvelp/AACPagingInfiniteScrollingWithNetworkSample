@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,7 +53,7 @@ class MovieListFragment : Fragment() {
 
         movieList.apply {
             setHasFixedSize(true)
-            layoutManager = GridLayoutManager(activity, COL)
+            layoutManager = GridLayoutManager(activity, COL) as RecyclerView.LayoutManager?
             adapter = movieListAdapter
         }
         movieListViewModel.movies.observe(viewLifecycleOwner, Observer { list ->
